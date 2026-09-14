@@ -21,31 +21,26 @@ export default function DashboardPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-  // TODO: replace with a dedicated /dashboard/summary endpoint once built
   const [metrics, setMetrics] = useState({ revenue: 0, orders: 0, customers: 0, avgOrder: 0 });
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [ordersRes, customersRes] = await Promise.all([
-          api.get<PaginatedResponse<Order>>("/orders"),
-          api.get<PaginatedResponse<Customer>>("/customers").catch(() => null)
-        ]);
+        const res = await api.get<{
+          revenue: number;
+          orders_count: number;
+          customers_count: number;
+          avg_order_value: number;
+          recent_orders: Order[];
+        }>("/dashboard/summary");
 
-        const fetchedOrders = ordersRes.data || [];
-        setOrders(fetchedOrders.slice(0, 5));
-
-        const totalRevenue = fetchedOrders.reduce((sum, order) => sum + Number(order.total), 0);
-        const totalOrders = ordersRes.meta?.total || fetchedOrders.length;
-        const avgOrder = totalOrders > 0 ? totalRevenue / totalOrders : 0;
+        setOrders(res.recent_orders || []);
         
-        const totalCustomers = customersRes?.meta?.total || 0;
-
         setMetrics({
-          revenue: totalRevenue,
-          orders: totalOrders,
-          customers: totalCustomers,
-          avgOrder,
+          revenue: res.revenue || 0,
+          orders: res.orders_count || 0,
+          customers: res.customers_count || 0,
+          avgOrder: res.avg_order_value || 0,
         });
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to load dashboard data");
