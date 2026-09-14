@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
     Route::apiResource('customers', CustomerController::class);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('orders', OrderController::class);
+    
+    Route::get('dashboard/summary', [DashboardController::class, 'summary']);
 });
 
 Route::prefix('v1/auth')->group(function () {
