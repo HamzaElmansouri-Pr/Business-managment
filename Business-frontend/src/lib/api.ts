@@ -3,7 +3,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api/v1
 type RequestOptions = Omit<RequestInit, "body"> & { body?: unknown };
 
 async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const token = typeof window !== "undefined" ? localStorage.getItem("opsly_token") : null;
+  const token = typeof window !== "undefined" ? localStorage.getItem("bm_token") : null;
 
   const res = await fetch(`${API_URL}${path}`, {
     ...options,
@@ -18,7 +18,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
 
   if (!res.ok) {
     if (res.status === 401 && typeof window !== "undefined") {
-      localStorage.removeItem("opsly_token");
+      localStorage.removeItem("bm_token");
       window.location.href = "/login";
       return Promise.reject(new Error("Unauthenticated"));
     }

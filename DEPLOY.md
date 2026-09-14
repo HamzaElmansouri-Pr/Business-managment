@@ -1,6 +1,6 @@
 # Deployment Guide
 
-Opsly is composed of a Next.js (React) frontend and a Laravel (PHP) backend. Follow these instructions to deploy them to Vercel and Railway, respectively.
+Business management is composed of a Next.js (React) frontend and a Laravel (PHP) backend. Follow these instructions to deploy them to Vercel and Railway, respectively.
 
 ## 1. Backend (Laravel) → Railway
 

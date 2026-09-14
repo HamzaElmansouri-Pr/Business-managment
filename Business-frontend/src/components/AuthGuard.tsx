@@ -8,7 +8,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("opsly_token");
+    const token = localStorage.getItem("bm_token");
     if (!token) {
       router.push("/login");
     } else {

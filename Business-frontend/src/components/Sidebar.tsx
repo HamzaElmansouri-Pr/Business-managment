@@ -25,7 +25,7 @@ export function Sidebar() {
     <aside className="w-[60px] md:w-[220px] shrink-0 border-r border-[var(--border)] bg-[var(--surface-1)] px-2 md:px-4 py-5 flex flex-col gap-1 h-screen sticky top-0 overflow-y-auto transition-all duration-300">
       <div className="flex items-center justify-center md:justify-start gap-2 px-2 mb-6">
         <div className="w-6 h-6 rounded-md bg-[var(--accent)] shrink-0" />
-        <span className="text-sm font-medium hidden md:block">Opsly</span>
+        <span className="text-sm font-medium hidden md:block">Business management</span>
       </div>
 
       <div className="flex-1 flex flex-col gap-1">
@@ -57,7 +57,7 @@ export function Sidebar() {
             } catch (e) {
               // Ignore errors if token is already invalid
             } finally {
-              localStorage.removeItem("opsly_token");
+              localStorage.removeItem("bm_token");
               window.location.href = "/login";
             }
           }}

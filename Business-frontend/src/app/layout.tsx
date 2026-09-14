@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Opsly — Business operations platform",
+  title: "Business management — Business operations platform",
   description: "Customers, products, and orders in one place.",
 };
 

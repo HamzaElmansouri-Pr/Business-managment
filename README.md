@@ -1,6 +1,6 @@
-# Opsly
+# Business management
 
-**Opsly** is a premium, full-stack Business Management Platform featuring a decoupled architecture with a **Laravel (PHP)** backend and a **Next.js (React)** frontend. It provides a sleek, dark-themed dashboard to manage Customers, Products, and Orders seamlessly.
+**Business management** is a premium, full-stack Business Management Platform featuring a decoupled architecture with a **Laravel (PHP)** backend and a **Next.js (React)** frontend. It provides a sleek, dark-themed dashboard to manage Customers, Products, and Orders seamlessly.
 
 ## 🚀 Features
 

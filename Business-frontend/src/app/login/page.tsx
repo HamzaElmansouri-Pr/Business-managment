@@ -23,7 +23,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const { token } = await api.post<{ token: string }>("/auth/login", { email, password });
-      localStorage.setItem("opsly_token", token);
+      localStorage.setItem("bm_token", token);
       router.push("/");
     } catch {
       setError("Couldn't sign in. Check your email and password.");
@@ -40,7 +40,7 @@ export default function LoginPage() {
       >
         <div className="flex items-center gap-2 mb-6">
           <div className="w-6 h-6 rounded-md bg-[var(--accent)]" />
-          <span className="text-sm font-medium">Opsly</span>
+          <span className="text-sm font-medium">Business management</span>
         </div>
 
         <label className="block text-sm text-[var(--text-secondary)] mb-1.5" htmlFor="email">
