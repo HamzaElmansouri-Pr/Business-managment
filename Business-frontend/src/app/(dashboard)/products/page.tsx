@@ -6,10 +6,14 @@ import { api } from "@/lib/api";
 import { Product, PaginatedResponse } from "@/lib/types";
 import { Modal } from "@/components/Modal";
 import { ProductForm } from "@/components/ProductForm";
+import { useAuth } from "@/lib/AuthContext";
 
 const currency = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
 export default function ProductsPage() {
+  const { user } = useAuth();
+  const canManage = user?.role === "admin" || user?.role === "manager";
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -37,14 +41,16 @@ export default function ProductsPage() {
     <div>
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-base font-medium">Products & services</h1>
-        <button 
-          aria-label="New product"
-          onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-1)] transition-colors"
-        >
-          <Plus size={14} />
-          New product
-        </button>
+        {canManage && (
+          <button 
+            aria-label="New product"
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-1)] transition-colors"
+          >
+            <Plus size={14} />
+            New product
+          </button>
+        )}
       </div>
 
 

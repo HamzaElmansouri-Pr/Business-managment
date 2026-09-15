@@ -24,7 +24,7 @@ class AuthApiTest extends TestCase
         ]);
 
         $response->assertStatus(200)
-            ->assertJsonStructure(['token', 'user' => ['id', 'name', 'email', 'roles']]);
+            ->assertJsonStructure(['token', 'user' => ['id', 'name', 'email', 'role']]);
     }
 
     public function test_wrong_password_is_rejected()

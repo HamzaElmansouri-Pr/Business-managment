@@ -54,7 +54,7 @@ Vercel is the optimal hosting platform for Next.js applications, offering zero-c
 You only need to configure one primary environment variable for the frontend to communicate with the deployed Laravel backend:
 
 ```ini
-NEXT_PUBLIC_API_URL=https://your-railway-app.up.railway.app/api
+NEXT_PUBLIC_API_URL=https://your-railway-app.up.railway.app/api/v1
 ```
 
 ### Deployment

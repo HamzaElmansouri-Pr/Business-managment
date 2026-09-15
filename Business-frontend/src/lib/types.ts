@@ -1,3 +1,11 @@
+export type User = {
+  id: number;
+  name: string;
+  email: string;
+  role: string | null;
+  created_at: string;
+};
+
 export type Customer = {
   id: number;
   name: string;

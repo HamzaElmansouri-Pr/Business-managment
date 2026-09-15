@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Customer;
 use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id' => \App\Models\Customer::factory(),
+            'customer_id' => Customer::factory(),
             'status' => fake()->randomElement(['pending', 'processing', 'completed', 'cancelled']),
             'total' => 0,
             'notes' => fake()->optional(0.7)->sentence(),

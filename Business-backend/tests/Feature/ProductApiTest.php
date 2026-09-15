@@ -18,7 +18,7 @@ class ProductApiTest extends TestCase
         Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']); // guard_name to avoid issues
         $user->assignRole('admin');
 
-        $response = $this->actingAs($user, 'sanctum')->getJson('/api/products');
+        $response = $this->actingAs($user, 'sanctum')->getJson('/api/v1/products');
 
         $response->assertStatus(200)
             ->assertJsonStructure(['data', 'links', 'meta']);
@@ -39,7 +39,7 @@ class ProductApiTest extends TestCase
             'is_active' => true,
         ];
 
-        $response = $this->actingAs($user, 'sanctum')->postJson('/api/products', $payload);
+        $response = $this->actingAs($user, 'sanctum')->postJson('/api/v1/products', $payload);
 
         $response->assertStatus(201)
             ->assertJsonPath('data.name', 'Test Product');
@@ -57,7 +57,7 @@ class ProductApiTest extends TestCase
             'name' => 'Test', 'sku' => 'T1', 'price' => 10, 'type' => 'product', 'stock' => 10,
         ]);
 
-        $response = $this->actingAs($user, 'sanctum')->deleteJson("/api/products/{$product->id}");
+        $response = $this->actingAs($user, 'sanctum')->deleteJson("/api/v1/products/{$product->id}");
 
         $response->assertStatus(403);
     }

@@ -20,7 +20,7 @@ class OrderApiTest extends TestCase
         Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
         $user->assignRole('admin');
 
-        $response = $this->actingAs($user, 'sanctum')->getJson('/api/orders');
+        $response = $this->actingAs($user, 'sanctum')->getJson('/api/v1/orders');
 
         $response->assertStatus(200)
             ->assertJsonStructure(['data', 'links', 'meta']);
@@ -44,7 +44,7 @@ class OrderApiTest extends TestCase
             ],
         ];
 
-        $response = $this->actingAs($user, 'sanctum')->postJson('/api/orders', $payload);
+        $response = $this->actingAs($user, 'sanctum')->postJson('/api/v1/orders', $payload);
 
         $response->assertStatus(201)
             ->assertJsonPath('data.total', '80.00');
@@ -62,7 +62,7 @@ class OrderApiTest extends TestCase
         $customer = Customer::create(['name' => 'John', 'email' => 'j2@example.com']);
         $order = Order::create(['customer_id' => $customer->id, 'status' => 'pending', 'total' => 0]);
 
-        $response = $this->actingAs($user, 'sanctum')->deleteJson("/api/orders/{$order->id}");
+        $response = $this->actingAs($user, 'sanctum')->deleteJson("/api/v1/orders/{$order->id}");
 
         $response->assertStatus(403);
     }

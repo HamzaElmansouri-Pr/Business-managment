@@ -34,19 +34,19 @@ class DashboardApiTest extends TestCase
         // Create a completed order (should be in revenue)
         Order::factory()->create([
             'status' => 'completed',
-            'total' => 150.00
+            'total' => 150.00,
         ]);
-        
+
         // Create another completed order
         Order::factory()->create([
             'status' => 'completed',
-            'total' => 50.00
+            'total' => 50.00,
         ]);
 
         // Create a pending order (should NOT be in revenue)
         Order::factory()->create([
             'status' => 'pending',
-            'total' => 100.00
+            'total' => 100.00,
         ]);
 
         $response = $this->getJson('/api/v1/dashboard/summary');
@@ -58,8 +58,8 @@ class DashboardApiTest extends TestCase
                 'customers_count',
                 'avg_order_value',
                 'recent_orders' => [
-                    '*' => ['id', 'status', 'total', 'customer']
-                ]
+                    '*' => ['id', 'status', 'total', 'customer'],
+                ],
             ]);
 
         $data = $response->json();

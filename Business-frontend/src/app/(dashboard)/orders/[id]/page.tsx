@@ -2,16 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { api } from "@/lib/api";
 import { Order } from "@/lib/types";
 import { StatusPill } from "@/components/StatusPill";
+import { useAuth } from "@/lib/AuthContext";
+import { Trash2, ArrowLeft } from "lucide-react";
 
 const currency = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
 export default function OrderDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const { user } = useAuth();
   
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
@@ -46,6 +48,16 @@ export default function OrderDetailPage() {
     }
   };
 
+  const handleDelete = async () => {
+    if (!order || !confirm("Are you sure you want to delete this order?")) return;
+    try {
+      await api.delete(`/orders/${order.id}`);
+      router.push("/orders");
+    } catch (err: any) {
+      alert(err.response?.data?.message || err.message || "Failed to delete order");
+    }
+  };
+
   if (loading) {
     return <div className="py-8 text-center text-sm text-[var(--text-muted)] animate-pulse">Loading order…</div>;
   }
@@ -65,9 +77,19 @@ export default function OrderDetailPage() {
 
   return (
     <div>
-      <button onClick={() => router.back()} className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors mb-6">
-        <ArrowLeft size={16} /> Back to orders
-      </button>
+      <div className="flex items-center justify-between mb-6">
+        <button onClick={() => router.back()} className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+          <ArrowLeft size={16} /> Back to orders
+        </button>
+        {user?.role === "admin" && (
+          <button 
+            onClick={handleDelete}
+            className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] text-[var(--danger-fg)] hover:bg-[var(--surface-2)] transition-colors border border-[var(--danger-fg)]"
+          >
+            <Trash2 size={14} /> Delete Order
+          </button>
+        )}
+      </div>
 
       <div className="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4">
         <div>

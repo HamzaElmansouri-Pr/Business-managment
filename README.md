@@ -79,6 +79,20 @@ For each resource, standard REST endpoints are available (`GET`, `POST`, `GET /{
 - `/v1/customers`
 - `/v1/products`
 - `/v1/orders`
+- `/v1/users`
+
+## 👥 Roles & Permissions
+
+The application implements Role-Based Access Control (RBAC) via Spatie Permissions. There are three roles:
+
+| Module | Admin | Manager | Staff |
+| :--- | :--- | :--- | :--- |
+| **Customers** | View, Create, Edit, Delete | View, Create, Edit | View |
+| **Products** | View, Create, Edit, Delete | View, Create, Edit | View |
+| **Orders** | View, Create, Edit, Delete | View, Create, Edit | View, Create, Edit |
+| **Users (Settings)** | View, Create, Edit, Delete | *None* | *None* |
+
+*Note: The demo seeder creates an admin user at `test@example.com` with password `password`, a manager at `manager@opsly.test`, and a staff member at `staff@opsly.test` (password is `password` for all).*
 
 ## 🚢 Deployment
 

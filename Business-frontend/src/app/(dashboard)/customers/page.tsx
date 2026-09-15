@@ -6,8 +6,12 @@ import { api } from "@/lib/api";
 import { Customer, PaginatedResponse } from "@/lib/types";
 import { Modal } from "@/components/Modal";
 import { CustomerForm } from "@/components/CustomerForm";
+import { useAuth } from "@/lib/AuthContext";
 
 export default function CustomersPage() {
+  const { user } = useAuth();
+  const canManage = user?.role === "admin" || user?.role === "manager";
+  
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -46,14 +50,16 @@ export default function CustomersPage() {
     <div>
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-base font-medium">Customers</h1>
-        <button 
-          aria-label="New customer"
-          onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-1)] transition-colors"
-        >
-          <Plus size={14} />
-          New customer
-        </button>
+        {canManage && (
+          <button 
+            aria-label="New customer"
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-1)] transition-colors"
+          >
+            <Plus size={14} />
+            New customer
+          </button>
+        )}
       </div>
 
       <div className="flex items-center gap-2 mb-4 px-3 py-2 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-1)] max-w-xs focus-within:border-[var(--accent)] focus-within:ring-1 focus-within:ring-[var(--accent)] transition-colors">

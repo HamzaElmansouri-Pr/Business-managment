@@ -13,9 +13,7 @@ class CustomerController extends Controller
 {
     public function __construct()
     {
-        // For simplicity and since policies might be missing,
-        // we'll comment this out or just skip authorizeResource if there's no Policy
-        // $this->authorizeResource(Customer::class, 'customer');
+        $this->authorizeResource(Customer::class, 'customer');
     }
 
     public function index(Request $request)

@@ -17,7 +17,7 @@ class DashboardController extends Controller
             $revenue = Order::where('status', 'completed')->sum('total');
             $ordersCount = Order::count();
             $customersCount = Customer::count();
-            
+
             $completedOrdersCount = Order::where('status', 'completed')->count();
             $avgOrderValue = $completedOrdersCount > 0 ? $revenue / $completedOrdersCount : 0;
 

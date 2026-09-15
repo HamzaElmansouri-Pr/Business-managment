@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,14 +27,29 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        $role = \Spatie\Permission\Models\Role::firstOrCreate(['name' => 'admin']);
-        $user->assignRole($role);
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
+        $managerRole = Role::firstOrCreate(['name' => 'manager']);
+        $staffRole = Role::firstOrCreate(['name' => 'staff']);
 
-        $customers = \App\Models\Customer::factory(25)->create();
-        $products = \App\Models\Product::factory(15)->create();
+        $user->assignRole($adminRole);
+
+        $manager = User::factory()->create([
+            'name' => 'Manager User',
+            'email' => 'manager@opsly.test',
+        ]);
+        $manager->assignRole($managerRole);
+
+        $staff = User::factory()->create([
+            'name' => 'Staff User',
+            'email' => 'staff@opsly.test',
+        ]);
+        $staff->assignRole($staffRole);
+
+        $customers = Customer::factory(25)->create();
+        $products = Product::factory(15)->create();
 
         foreach ($customers->random(15) as $customer) {
-            $orders = \App\Models\Order::factory(rand(1, 3))->create([
+            $orders = Order::factory(rand(1, 3))->create([
                 'customer_id' => $customer->id,
             ]);
 
@@ -37,12 +57,12 @@ class DatabaseSeeder extends Seeder
                 $itemsCount = rand(1, 4);
                 $items = collect();
                 for ($i = 0; $i < $itemsCount; $i++) {
-                    $items->push(\App\Models\OrderItem::factory()->create([
+                    $items->push(OrderItem::factory()->create([
                         'order_id' => $order->id,
                         'product_id' => $products->random()->id,
                     ]));
                 }
-                
+
                 $total = $items->sum(fn ($item) => $item->quantity * $item->unit_price);
                 $order->update(['total' => $total]);
             }
