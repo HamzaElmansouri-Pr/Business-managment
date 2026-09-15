@@ -22,7 +22,7 @@ A premium, decoupled Business Management Platform providing seamless CRM, invent
 ## API Documentation
 The API documentation is provided as a complete Postman collection, which serves as the single source of truth for all available endpoints.
 
-1. Download the [postman/opsly-api.postman_collection.json](file:///home/hamza/Workspace/ELMA_Core/Business management/postman/opsly-api.postman_collection.json) file from this repository.
+1. Download the [`postman/opsly-api.postman_collection.json`](postman/opsly-api.postman_collection.json) file from this repository.
 2. Import the collection into Postman.
 3. **Variables**: The collection uses two main variables:
    - `base_url`: Defaults to `http://localhost:8000/api`. If testing against the production API, override this variable to your live Railway app URL (e.g., `https://opsly-backend-production.up.railway.app/api`).
