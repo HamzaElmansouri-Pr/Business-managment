@@ -50,6 +50,7 @@ export function Sidebar() {
 
       <div className="mt-auto pt-4 border-t border-[var(--border)]">
         <button
+          aria-label="Log out"
           onClick={async () => {
             try {
               const { api } = await import("@/lib/api");

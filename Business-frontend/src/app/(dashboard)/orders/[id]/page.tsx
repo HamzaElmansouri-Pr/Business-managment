@@ -83,7 +83,7 @@ export default function OrderDetailPage() {
             value={order.status}
             onChange={(e) => handleStatusChange(e.target.value)}
             disabled={updating}
-            className="px-3 py-1.5 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus:border-[var(--accent)] transition-colors appearance-none cursor-pointer disabled:opacity-60"
+            className="px-3 py-1.5 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors appearance-none cursor-pointer disabled:opacity-60"
           >
             <option value="pending">Pending</option>
             <option value="processing">Processing</option>

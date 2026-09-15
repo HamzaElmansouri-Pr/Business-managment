@@ -38,6 +38,7 @@ export default function ProductsPage() {
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-base font-medium">Products & services</h1>
         <button 
+          aria-label="New product"
           onClick={() => setIsModalOpen(true)}
           className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-1)] transition-colors"
         >
@@ -45,6 +46,7 @@ export default function ProductsPage() {
           New product
         </button>
       </div>
+
 
       {error && (
         <div className="mb-6 p-3 rounded-[var(--radius)] border border-[#ffb3b3] bg-[#fff2f2] text-[#c00000] text-sm dark:bg-[#331111] dark:border-[#662222] dark:text-[#ff9999]">

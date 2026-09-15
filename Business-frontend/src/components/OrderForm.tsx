@@ -236,7 +236,7 @@ export function OrderForm({ onSuccess, onCancel }: OrderFormProps) {
                         value={item.productId}
                         aria-label="Select product"
                         onChange={(e) => updateItem(index, 'productId', Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus:border-[var(--accent)] transition-colors"
+                        className="w-full px-2.5 py-1.5 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors"
                       >
                         {products.map(p => (
                           <option key={p.id} value={p.id}>{p.name} - {currency(Number(p.price))}</option>
@@ -250,7 +250,7 @@ export function OrderForm({ onSuccess, onCancel }: OrderFormProps) {
                         aria-label="Quantity"
                         value={item.quantity}
                         onChange={(e) => updateItem(index, 'quantity', Number(e.target.value))}
-                        className="w-full px-2.5 py-1.5 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus:border-[var(--accent)] transition-colors"
+                        className="w-full px-2.5 py-1.5 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors"
                         placeholder="Qty"
                       />
                     </div>
@@ -283,7 +283,7 @@ export function OrderForm({ onSuccess, onCancel }: OrderFormProps) {
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus:border-[var(--accent)] transition-colors resize-none"
+              className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors resize-none"
             />
           </div>
 

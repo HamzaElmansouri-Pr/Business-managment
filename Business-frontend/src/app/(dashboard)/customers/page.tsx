@@ -47,6 +47,7 @@ export default function CustomersPage() {
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-base font-medium">Customers</h1>
         <button 
+          aria-label="New customer"
           onClick={() => setIsModalOpen(true)}
           className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-1)] transition-colors"
         >
@@ -55,9 +56,10 @@ export default function CustomersPage() {
         </button>
       </div>
 
-      <div className="flex items-center gap-2 mb-4 px-3 py-2 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-1)] max-w-xs focus-within:border-[var(--accent)] transition-colors">
+      <div className="flex items-center gap-2 mb-4 px-3 py-2 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-1)] max-w-xs focus-within:border-[var(--accent)] focus-within:ring-1 focus-within:ring-[var(--accent)] transition-colors">
         <Search size={14} className="text-[var(--text-muted)]" />
         <input
+          aria-label="Search customers"
           placeholder="Search customers"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

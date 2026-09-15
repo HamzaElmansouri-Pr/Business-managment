@@ -57,6 +57,7 @@ export default function DashboardPage() {
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-base font-medium">Overview</h1>
         <button 
+          aria-label="New order"
           onClick={() => setIsModalOpen(true)}
           className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-1)] transition-colors"
         >
@@ -71,7 +72,7 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <div className="grid grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <MetricCard label="Revenue" value={loading ? "..." : currency(metrics.revenue)} />
         <MetricCard label="Orders" value={loading ? "..." : metrics.orders.toLocaleString("en-US")} />
         <MetricCard label="Customers" value={loading ? "..." : metrics.customers.toLocaleString("en-US")} />

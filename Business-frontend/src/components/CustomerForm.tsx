@@ -71,7 +71,7 @@ export function CustomerForm({ onSuccess, onCancel }: CustomerFormProps) {
           id="name"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.name ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors`}
+          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.name ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors`}
         />
         {errors.name && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.name}</p>}
       </div>
@@ -85,7 +85,7 @@ export function CustomerForm({ onSuccess, onCancel }: CustomerFormProps) {
           type="email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.email ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors`}
+          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.email ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors`}
         />
         {errors.email && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.email}</p>}
       </div>
@@ -98,7 +98,7 @@ export function CustomerForm({ onSuccess, onCancel }: CustomerFormProps) {
           id="phone"
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.phone ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors`}
+          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.phone ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors`}
         />
         {errors.phone && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.phone}</p>}
       </div>
@@ -112,7 +112,7 @@ export function CustomerForm({ onSuccess, onCancel }: CustomerFormProps) {
           rows={3}
           value={formData.address}
           onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.address ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors resize-none`}
+          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.address ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors resize-none`}
         />
         {errors.address && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.address}</p>}
       </div>

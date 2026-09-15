@@ -85,7 +85,7 @@ export function ProductForm({ onSuccess, onCancel }: ProductFormProps) {
           id="name"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.name ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors`}
+          className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.name ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors`}
         />
         {errors.name && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.name}</p>}
       </div>
@@ -99,7 +99,7 @@ export function ProductForm({ onSuccess, onCancel }: ProductFormProps) {
             id="sku"
             value={formData.sku}
             onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
-            className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.sku ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors`}
+            className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.sku ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors`}
           />
           {errors.sku && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.sku}</p>}
         </div>
@@ -112,7 +112,7 @@ export function ProductForm({ onSuccess, onCancel }: ProductFormProps) {
             id="type"
             value={formData.type}
             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-            className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus:border-[var(--accent)] transition-colors appearance-none`}
+            className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border border-[var(--border)] text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors appearance-none`}
           >
             <option value="product">Product</option>
             <option value="service">Service</option>
@@ -132,7 +132,7 @@ export function ProductForm({ onSuccess, onCancel }: ProductFormProps) {
             min="0"
             value={formData.price}
             onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-            className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.price ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors`}
+            className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.price ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors`}
           />
           {errors.price && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.price}</p>}
         </div>
@@ -149,7 +149,7 @@ export function ProductForm({ onSuccess, onCancel }: ProductFormProps) {
               step="1"
               value={formData.stock}
               onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
-              className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.stock ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus:border-[var(--accent)] transition-colors`}
+              className={`w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--surface-2)] border ${errors.stock ? 'border-[var(--danger-fg)]' : 'border-[var(--border)]'} text-sm outline-none focus-visible:border-[var(--accent)] focus-visible:ring-1 focus-visible:ring-[var(--accent)] transition-colors`}
             />
             {errors.stock && <p className="text-xs text-[var(--danger-fg)] mt-1">{errors.stock}</p>}
           </div>
