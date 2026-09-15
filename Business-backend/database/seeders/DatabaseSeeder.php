@@ -67,5 +67,24 @@ class DatabaseSeeder extends Seeder
                 $order->update(['total' => $total]);
             }
         }
+
+        // Specifically create 5 "new" (pending) orders for the dashboard display
+        $recentCustomers = Customer::inRandomOrder()->take(5)->get();
+        foreach ($recentCustomers as $customer) {
+            $order = Order::factory()->create([
+                'customer_id' => $customer->id,
+                'status' => 'pending',
+                'created_at' => now(),
+            ]);
+
+            $product = Product::inRandomOrder()->first();
+            $item = OrderItem::factory()->create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'quantity' => rand(1, 3),
+            ]);
+
+            $order->update(['total' => $item->quantity * $item->unit_price]);
+        }
     }
 }
