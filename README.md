@@ -1,5 +1,8 @@
 # Business Managment
 
+[![Backend Tests](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/tests.yml/badge.svg)](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/tests.yml)
+[![Frontend Build](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/build.yml/badge.svg)](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/build.yml)
+
 A premium, decoupled Business Management Platform providing seamless CRM, inventory, and order processing capabilities. 
 **Live Demo:** [https://opsly-demo.vercel.app](https://opsly-demo.vercel.app) *(Replace with your live Vercel URL)*
 
