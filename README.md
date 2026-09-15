@@ -13,10 +13,20 @@ A premium, decoupled Business Management Platform providing seamless CRM, invent
 
 ## Core Features
 - **Role-based access control (Admin / Manager / Staff)** — permissions are enforced in the API and reflected in the UI (see the role badge and restricted actions when logged in as Staff).
+- **In-App & Email Notifications** — real-time database and mail notifications triggered by order status updates, featuring an interactive notification bell in the dashboard.
 - **Full REST API with form validation and structured error responses** — every write endpoint validates input server-side and returns field-level errors, not just a generic failure.
 - **Search and filtering on every list view** — customers by name/email, products by name/sku/type, orders by status.
 - **17 feature tests covering auth, CRUD, and authorization boundaries** — all passing and ensuring robust quality assurance.
 - **Responsive admin UI**, REST API, and the core CRUD modules (customers, products/services, orders).
+
+## API Documentation
+The API documentation is provided as a complete Postman collection, which serves as the single source of truth for all available endpoints.
+
+1. Download the [postman/opsly-api.postman_collection.json](file:///home/hamza/Workspace/ELMA_Core/Business management/postman/opsly-api.postman_collection.json) file from this repository.
+2. Import the collection into Postman.
+3. **Variables**: The collection uses two main variables:
+   - `base_url`: Defaults to `http://localhost:8000/api`. If testing against the production API, override this variable to your live Railway app URL (e.g., `https://opsly-backend-production.up.railway.app/api`).
+   - `token`: Run the `Auth > Login` endpoint using one of the demo credentials to retrieve an access token. Paste the `token` value from the response into your Postman collection's `token` variable. All subsequent requests will authenticate automatically using Bearer Auth!
 
 ## Tech Stack
 - **Backend:** Laravel 11 + Sanctum + Spatie Permission
