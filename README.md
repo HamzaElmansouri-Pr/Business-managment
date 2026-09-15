@@ -1,4 +1,4 @@
-# Opsly
+# Business Managment
 
 A premium, decoupled Business Management Platform providing seamless CRM, inventory, and order processing capabilities. 
 **Live Demo:** [https://opsly-demo.vercel.app](https://opsly-demo.vercel.app) *(Replace with your live Vercel URL)*

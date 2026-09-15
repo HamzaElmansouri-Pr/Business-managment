@@ -57,7 +57,14 @@ class OrderController extends Controller
 
     public function update(UpdateOrderRequest $request, Order $order)
     {
+        $oldStatus = $order->status;
         $order->update($request->only(['status', 'notes']));
+
+        if ($request->has('status') && $oldStatus !== $order->status) {
+            // Since Customer doesn't use the Notifiable trait by default,
+            // we notify the acting user (Admin/Manager).
+            $request->user()->notify(new \App\Notifications\OrderStatusUpdated($order, $oldStatus));
+        }
 
         return new OrderResource($order->load(['customer', 'items.product']));
     }

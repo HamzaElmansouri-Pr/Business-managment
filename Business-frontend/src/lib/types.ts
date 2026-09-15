@@ -57,3 +57,19 @@ export type PaginatedResponse<T> = {
     total: number;
   };
 };
+
+export type AppNotification = {
+  id: string;
+  type: string;
+  notifiable_type: string;
+  notifiable_id: number;
+  data: {
+    order_id: number;
+    status: OrderStatus;
+    old_status: OrderStatus;
+    message: string;
+  };
+  read_at: string | null;
+  created_at: string;
+};
+
