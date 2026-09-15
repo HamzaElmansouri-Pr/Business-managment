@@ -34,7 +34,8 @@ export default function DashboardPage() {
           recent_orders: Order[];
         }>("/dashboard/summary");
 
-        setOrders(res.recent_orders || []);
+        const recent = res.recent_orders || (res as any).data?.recent_orders;
+        setOrders(Array.isArray(recent) ? recent : []);
         
         setMetrics({
           revenue: res.revenue || 0,
