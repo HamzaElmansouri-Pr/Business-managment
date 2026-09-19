@@ -29,7 +29,7 @@ The API documentation is provided as a complete Postman collection, which serves
 ## Screenshots
 
 ### Login Page 
-![Login](Business-frontend/public/screenshots/login.png)
+![Login](Business-frontend/public/screenshots/loginpage.png)
 
 ### Dashboard
 ![Dashboard](Business-frontend/public/screenshots/dashboard.png)
