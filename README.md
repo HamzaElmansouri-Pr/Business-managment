@@ -4,12 +4,11 @@
 [![Frontend Build](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/build.yml/badge.svg)](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/build.yml)
 
 A premium, decoupled Business Management Platform providing seamless CRM, inventory, and order processing capabilities. 
-**Live Demo:** [https://crm-demo.vercel.app](https://crm-demo.vercel.app) *(Replace with your live Vercel URL)*
+**Live Demo:**
 
 ### Demo Logins
 - `test@example.com` / `password` — full access (Admin)
-- `manager@crm.test` / `password` — no delete access (Manager)
-- `staff@crm.test` / `password` — read-only on customers/products (Staff)
+
 
 ## Core Features
 - **Role-based access control (Admin / Manager / Staff)** — permissions are enforced in the API and reflected in the UI (see the role badge and restricted actions when logged in as Staff).
@@ -22,22 +21,33 @@ A premium, decoupled Business Management Platform providing seamless CRM, invent
 ## API Documentation
 The API documentation is provided as a complete Postman collection, which serves as the single source of truth for all available endpoints.
 
-1. Download the [`postman/crm-api.postman_collection.json`](postman/crm-api.postman_collection.json) file from this repository.
-2. Import the collection into Postman.
-3. **Variables**: The collection uses two main variables:
-   - `base_url`: Defaults to `http://localhost:8000/api`. If testing against the production API, override this variable to your live Railway app URL (e.g., `https://crm-backend-production.up.railway.app/api`).
-   - `token`: Run the `Auth > Login` endpoint using one of the demo credentials to retrieve an access token. Paste the `token` value from the response into your Postman collection's `token` variable. All subsequent requests will authenticate automatically using Bearer Auth!
 
 ## Tech Stack
 - **Backend:** Laravel 11 + Sanctum + Spatie Permission
 - **Frontend:** Next.js + TypeScript + Tailwind (Custom Glassmorphism CSS)
 
 ## Screenshots
+
+### Login Page 
+![Login](Business-frontend/public/screenshots/login.png)
+
 ### Dashboard
 ![Dashboard](Business-frontend/public/screenshots/dashboard.png)
 
+### Orders
+![Orders](Business-frontend/public/screenshots/orders.png)
+
+### Products
+![Products](Business-frontend/public/screenshots/products.png)
+
+### Customers
+![Customers](Business-frontend/public/screenshots/customers.png)
+
 ### Order Details
 ![Order Details](Business-frontend/public/screenshots/order-detail.png)
+
+### Settings
+![Settings](Business-frontend/public/screenshots/settings.png)
 
 ---
 
