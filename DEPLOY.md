@@ -47,7 +47,7 @@ Once the deployment succeeds and the database is linked:
    php artisan migrate --force
    php artisan db:seed --force
    ```
-   *This seeds the test users (`test@example.com`, `manager@opsly.test`, etc.), realistic Customers, Products, and ~40 historical Orders for a robust demo.*
+   *This seeds the test users (`test@example.com`, `manager@crm.test`, etc.), realistic Customers, Products, and ~40 historical Orders for a robust demo.*
 
 ---
 

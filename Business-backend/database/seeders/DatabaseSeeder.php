@@ -35,13 +35,13 @@ class DatabaseSeeder extends Seeder
 
         $manager = User::factory()->create([
             'name' => 'Manager User',
-            'email' => 'manager@opsly.test',
+            'email' => 'manager@crm.test',
         ]);
         $manager->assignRole($managerRole);
 
         $staff = User::factory()->create([
             'name' => 'Staff User',
-            'email' => 'staff@opsly.test',
+            'email' => 'staff@crm.test',
         ]);
         $staff->assignRole($staffRole);
 

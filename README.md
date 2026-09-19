@@ -4,12 +4,12 @@
 [![Frontend Build](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/build.yml/badge.svg)](https://github.com/HamzaElmansouri-Pr/Business-managment/actions/workflows/build.yml)
 
 A premium, decoupled Business Management Platform providing seamless CRM, inventory, and order processing capabilities. 
-**Live Demo:** [https://opsly-demo.vercel.app](https://opsly-demo.vercel.app) *(Replace with your live Vercel URL)*
+**Live Demo:** [https://crm-demo.vercel.app](https://crm-demo.vercel.app) *(Replace with your live Vercel URL)*
 
 ### Demo Logins
 - `test@example.com` / `password` — full access (Admin)
-- `manager@opsly.test` / `password` — no delete access (Manager)
-- `staff@opsly.test` / `password` — read-only on customers/products (Staff)
+- `manager@crm.test` / `password` — no delete access (Manager)
+- `staff@crm.test` / `password` — read-only on customers/products (Staff)
 
 ## Core Features
 - **Role-based access control (Admin / Manager / Staff)** — permissions are enforced in the API and reflected in the UI (see the role badge and restricted actions when logged in as Staff).
@@ -22,10 +22,10 @@ A premium, decoupled Business Management Platform providing seamless CRM, invent
 ## API Documentation
 The API documentation is provided as a complete Postman collection, which serves as the single source of truth for all available endpoints.
 
-1. Download the [`postman/opsly-api.postman_collection.json`](postman/opsly-api.postman_collection.json) file from this repository.
+1. Download the [`postman/crm-api.postman_collection.json`](postman/crm-api.postman_collection.json) file from this repository.
 2. Import the collection into Postman.
 3. **Variables**: The collection uses two main variables:
-   - `base_url`: Defaults to `http://localhost:8000/api`. If testing against the production API, override this variable to your live Railway app URL (e.g., `https://opsly-backend-production.up.railway.app/api`).
+   - `base_url`: Defaults to `http://localhost:8000/api`. If testing against the production API, override this variable to your live Railway app URL (e.g., `https://crm-backend-production.up.railway.app/api`).
    - `token`: Run the `Auth > Login` endpoint using one of the demo credentials to retrieve an access token. Paste the `token` value from the response into your Postman collection's `token` variable. All subsequent requests will authenticate automatically using Bearer Auth!
 
 ## Tech Stack

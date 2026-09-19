@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "Opsly API",
-    "description": "REST API for the Opsly Business Management Platform.\n\n### Authentication\nMost endpoints require a Bearer token. Log in via `POST /auth/login` with your credentials (e.g., `test@example.com` / `password`), copy the token from the response, and set it as the `token` variable in Postman.\n\n### Base URL\nThe `base_url` variable defaults to `http://localhost:8000/api`. If testing against the production API, override this variable to your live Railway app URL (e.g., `https://opsly-backend-production.up.railway.app/api`).",
+    "name": "CRM API",
+    "description": "REST API for the CRM Business Management Platform.\n\n### Authentication\nMost endpoints require a Bearer token. Log in via `POST /auth/login` with your credentials (e.g., `test@example.com` / `password`), copy the token from the response, and set it as the `token` variable in Postman.\n\n### Base URL\nThe `base_url` variable defaults to `http://localhost:8000/api`. If testing against the production API, override this variable to your live Railway app URL (e.g., `https://crm-backend-production.up.railway.app/api`).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
